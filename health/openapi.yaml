@@ -1,0 +1,57 @@
+---
+openapi: 3.0.0
+info:
+  title: Health API
+  description: This API provides event health
+  contact:
+    email: dsalazar4@my.bcit.ca
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /health:
+    get:
+      summary: Gets health
+      description: Gets health of other services
+      operationId: app.get_health
+      responses:
+        "200":
+          description: Sucessfully returned a list of health checks
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/health'
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+components:
+  schemas:
+    health:
+      required:
+      - audit
+      - processing
+      - receiver
+      - storage
+      type: object
+      properties:
+        receiver:
+          type: string
+          example: running
+        storage:
+          type: string
+          example: running
+        processing:
+          type: string
+          example: running
+        audit:
+          type: string
+          example: running
+

@@ -1,0 +1,9 @@
+version: 1
+datastore:
+  filename: health.sqlite
+scheduler:
+  period_sec: 2
+receiver: http://acit3855-lab.westeurope.cloudapp.azure.com/receiver/health
+storage: http://acit3855-lab.westeurope.cloudapp.azure.com/storage/health
+processing: http://acit3855-lab.westeurope.cloudapp.azure.com/processing/health
+audit: http://acit3855-lab.westeurope.cloudapp.azure.com/audit/health
